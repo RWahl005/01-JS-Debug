@@ -4,17 +4,17 @@
  *    Tuba Farm Equipment
  *    Variables and functions
  *    
- *    Author: 
- *    Date:   
+ *    Author: Ryan Wahl
+ *    Date:   8.7.19
 
  *    Filename: tuba.js
  */
 
 /* global variables tracking status of each form section */
-var acresComplete = true;
-var cropsComplete = true;
-var monthsComplete = true;
-ar fuelComplete = true;
+var acresComplete = false;
+var cropsComplete = false;
+var monthsComplete = false;
+var fuelComplete = true;
 
 /* global variables referencing sidebar h2 and p elements */
 var messageHeadElement = document.getElementById("messageHead");
@@ -23,25 +23,46 @@ var messageElement = document.getElementById("message");
 /* global variables referencing fieldset elements */
 var acresFieldset = document.getElementsByTagName("fieldset")[0];
 var cropsFieldset = document.getElementsByTagName("fieldset")[1];
-var monthsFieldset document.getElementsByTagName("fieldset")[2];
-var fuelFieldset = document.getElementsByTagName("fieldset)[3];
+var monthsFieldset = document.getElementsByTagName("fieldset")[2];
+var fuelFieldset = document.getElementsByTagName("fieldset")[3];
 
 /* global variables referencing text input elements */
 var monthsBox = document.forms[0].months;
 var acresBox = document.forms[0].acres;
 
 /* verify acres text box entry is a positive number */
-function verifyAcres) {
+function verifyAcres() {
+   acresComplete = true;
    testFormCompleteness();      
 }
 
 /* verify at least one crops checkbox is checked */
 function verifyCrops() {
-   testFormCompleteness();
+   try{
+      for(var i = 0; i < 7; i++){
+         if(cropsFieldset.getElementsByTagName("input")[i].checked){
+            cropsComplete = true;
+            messageElement.innerHTML = "";
+            testFormCompleteness();
+            i = 8;
+            // break;
+         }
+      }
+      if(i === 7){
+         throw "Please select at least one crop";
+      }
+   }
+   catch(message){
+      cropsComplete = false;
+      messageHeadElement.innerHTML = "";
+      messageElement.innerHTML = message;
+   }
+   // testFormCompleteness();
 }
 
 /* verify months text box entry is between 1 and 12 */
 function verifyMonths() {
+   monthsComplete = true;
    testFormCompleteness();
 }
 
@@ -84,7 +105,7 @@ function createRecommendation() {
    if (document.getElementById("E85").checked) { // add suffix to model name based on fuel choice
       messageHeadElement.innerHTML += "E";
    } else if (document.getElementById("biodiesel").checked) {
-      messageHeadElement.innerHTML = "B";
+      messageHeadElement.innerHTML += "B"; //Error
    } else {
       messageHeadElement.innerHTML += "D";  
    }
