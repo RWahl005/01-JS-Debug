@@ -11,6 +11,8 @@
 "use strict"; // interpret document contents in JavaScript strict mode
 
 /* global variables */
+console.info("The following error is caused by one of chromes security features. There is no way around this. \
+See: https://stackoverflow.com/questions/29983786/blocked-a-frame-of-origin-null-from-accessing-a-cross-origin-frame-chrome for more info");
 var photoOrderArray = window.opener.photoOrder;
 var figFilename = "images/IMG_0" + photoOrderArray[2] + ".jpg";
 
@@ -19,16 +21,15 @@ function pageSetup() {
    document.getElementsByTagName("img")[0].src = figFilename; // assign filename to img element
 }
 
-function closeWin(){
+function closeWin() {
    window.close;
 }
 
-function createEventListener(){
+function createEventListener() {
    var closeWindowDiv = document.getElementsByTagName("p")[0];
-   if(closeWindowDiv.addEventListener){
+   if (closeWindowDiv.addEventListener) {
       closeWindowDiv.addEventListener("click", closeWin, false);
-   }
-   else if(closeWindowDiv.attachEvent){
+   } else if (closeWindowDiv.attachEvent) {
       closeWindowDiv.attachEvent("onclick", closeWin);
    }
 }

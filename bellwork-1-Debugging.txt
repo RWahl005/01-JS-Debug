@@ -1,8 +1,34 @@
-Please describe in detail your feelings about where you currently are in JavaScript programming. Please include how well you feel that you have mastered it, as well as listing those things that you think are a challenge to you. Any feedback about whre you are, and where you think you need to go, or would like to go, will be very helpful in getting you there.
+Please describe in detail your feelings about where you currently are in JavaScript programming. 
+Please include how well you feel that you have mastered it, as well as listing those things that you think are a challenge to you. 
+Any feedback about whre you are, and where you think you need to go, or would like to go, will be very helpful in getting you there.
+----
+I feel very good about JavaScript. It was not that hard for me to learn as I already know several languages. I have challenged myself in the last semester and made several JavaScript
+projects. (Some being Object Oriented projects).
 
-Please describe in detail the types of "bugs" a coder can expect to encounter when coding a web page with JavaScript. Describe the techniques you have learned to resolve the types of bugs that we have examined so far. Quote an outside source containing information on resolving this type of bug.
+Please describe in detail the types of "bugs" a coder can expect to encounter when coding a web page with JavaScript. 
+Describe the techniques you have learned to resolve the types of bugs that we have examined so far. Quote an outside source containing information on resolving this type of bug.
+----
+There are several types of bugs that one can encounter. Some are syntax errors while others are logic bugs where the computer does not do what you expected. Another type is invalid handling of data. So
+for example trying to grab something that doesn't exist (NullPointerException) and putting Strings into functions meant for Numbers. The best way to fix syntax is to see what your coding editor suggests.
+The best way to solve the other two is just lots of console.log(); All you need to do is just log different variables until you find a value that is not correct. Then you can solve it from there.
+https://www.w3schools.com/js/js_debugging.asp
 
-Please describe in detail, in your own words, the difference between syntax bugs and logic bugs. Describe the differences in technique in the way that they are resolved. Use an outside source to provide additional information that is relevant to this particular subject matter.
+Please describe in detail, in your own words, the difference between syntax bugs and logic bugs. Describe the differences in technique in the way that they are resolved. 
+Use an outside source to provide additional information that is relevant to this particular subject matter.
+---
+A syntax bug is like a missing equal sign or a missing bracket. A logic bug is where the computer does not do something ask expected. A syntax error is resolved by looking at the editor or just see what line is the problem via the
+developer console on chrome. A logic bug is solved by just printing out different values to the console and seeing what value doesn't make sense or is null.
+
+
+
+
+
+
+
+
+
+
+
 
 Please describe in detail, in your own words, the three different techniques that we have learned so far to resolve logic bugs. What are the advantages and disadvantages of each method?  For this bell work, you do not need to use an outside source to provide additional information that is relevant to this particular subject matter.
 
