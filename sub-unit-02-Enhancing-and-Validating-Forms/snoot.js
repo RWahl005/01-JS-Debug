@@ -4,7 +4,9 @@ var twentyNine = document.createDocumentFragment();
 var thirty = document.createDocumentFragment();
 var thirtyOne = document.createDocumentFragment();
 var formValidity = true;
-
+/**
+ * Sets up the dates for the drop downs
+ */
 function setUpDays(){
     var dates = document.getElementById("delivDy").getElementsByTagName("option");
     twentyNine.appendChild(dates[28].cloneNode(true));
@@ -15,6 +17,9 @@ function setUpDays(){
     thirtyOne.appendChild(dates[30].cloneNode(true));
 }
 
+/**
+ * Updates the dropdowns to include the correct day data.
+ */
 function updateDays(){
     var deliveryDay = document.getElementById("delivDy");
     var dates = deliveryDay.getElementsByTagName("option");
@@ -42,6 +47,9 @@ function updateDays(){
     }
 }
 
+/**
+ * When the javascript is loaded call the setUpPage function.
+ */
 if(window.addEventListener){
     window.addEventListener("load", setUpPage, false);
 }
@@ -56,12 +64,20 @@ function removeSelectDefaults() {
     }
 }
 
+/**
+ * Call all of the other events.
+ */
 function setUpPage(){
     setUpDays();
     createEventListeners();
     removeSelectDefaults();
+    createEventListener();
 }
 
+/**
+ * Validate the address form section
+ * @param {*} fieldsetId 
+ */
 function validateAddress(fieldsetId){
     var inputElements = document.querySelectorAll("#" + fieldsetId + " input");
     var errorDiv = document.querySelectorAll("#" + fieldsetId + " .errorMessage")[0];
@@ -106,6 +122,9 @@ function validateAddress(fieldsetId){
     }
 }
 
+/**
+ * Validate the Delivery Form Section
+ */
 function validateDeliveryDate(){
     var selectElements = document.querySelectorAll("#deliveryDate select");
     var errorDiv = document.querySelector("#deliveryDate .errorMessage");
@@ -137,6 +156,9 @@ function validateDeliveryDate(){
     }
 }
 
+/**
+ * Validate the Message
+ */
 function validateMessage(){
     var errorDiv = document.querySelector("#message .errorMessage");
     var msgBox = document.getElementById("customText");
@@ -156,6 +178,9 @@ function validateMessage(){
     }
 }
 
+/**
+ * Validate the Create Account form section
+ */
 function validateCreateAccount(){
     var errorDiv = document.querySelector("#createAccount .errorMessage");
     var usernameElement = document.getElementById("username");
@@ -194,6 +219,9 @@ function validateCreateAccount(){
     }
 }
 
+/**
+ * Validate the form payment section
+ */
 function validatePayment(){
     var errorDiv = document.querySelector("#paymentInfo .errorMessage");
     var fieldsetValidity = true;
@@ -252,6 +280,10 @@ function validatePayment(){
     }
 }
 
+/**
+ * Called when the form is submitted
+ * @param {*} evt 
+ */
 function validateForm(evt){
     if(evt.preventDefault){
         evt.preventDefault();
@@ -278,6 +310,9 @@ function validateForm(evt){
     
 }
 
+/**
+ * Add event listeners to items.
+ */
 function createEventListeners(){
     var deliveryMonth = document.getElementById("delivMo");
     if(deliveryMonth.addEventListener){
@@ -312,6 +347,9 @@ function createEventListeners(){
     }
 }
 
+/**
+ * copy all of the data for billing address
+ */
 function copyBillingAddress(){
     var billingInputElements = document.querySelectorAll("#billingAddress input");
     var deliveryInputElements = document.querySelectorAll("#deliveryAddress input");
@@ -330,6 +368,9 @@ function copyBillingAddress(){
     }
 }
 
+/**
+ * Auto check the Custom Message option if it contains a value.
+ */
 function autoCheckCustom(){
     var messageBox = document.getElementById("customText");
     if(messageBox.value !== "" && messageBox.value !== messageBox.placeholder){
@@ -340,6 +381,9 @@ function autoCheckCustom(){
     }
 }
 
+/**
+ * Add in other event listeners.
+ */
 function createEventListener(){
     var submitButton = document.getElementById("orderButton"); // It is not submit.
     if(submitButton.addEventListener){
@@ -356,5 +400,3 @@ function createEventListener(){
         messageBox.attachEvent("onchange", autoCheckCustom);
     }
 }
-
-createEventListener();
